@@ -14,7 +14,7 @@ variables:
   solution: '**/*.sln'
   deployFolder: '$(Build.ArtifactStagingDirectory)/deploy'
   utilityFolder: '$(Build.ArtifactStagingDirectory)/utility'
-  angularBatSource: '$(Build.SourcesDirectory)/src/PokerLeagueManager.UI.Web/BuildAngular.bat'
+  angularBatSource: '$(Build.SourcesDirectory)\src\PokerLeagueManager.UI.Web\BuildAngular.bat'
   utilitySource: '$(Build.SourcesDirectory)/src/PokerLeagueManager.Utilties/bin/$(buildConfiguration)'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
