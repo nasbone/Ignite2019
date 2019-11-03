@@ -28,7 +28,7 @@ steps:
 
 - task: BatchScript@1
   inputs:
-    filename: '$(angularbat)'
+    filename: '$(Build.SourcesDirectory)\src\PokerLeagueManager.UI.Web\BuildAngular.bat'
 
 - task: VSBuild@1
   inputs:
@@ -47,13 +47,13 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/deploy'
     Contents: '**'
-    TargetFolder: '$(deployFolder)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/deploy'
 - task: CopyFiles@2
   displayName: Copy Utilities
   inputs:
-    SourceFolder: '$(utilitySource)'
+    SourceFolder: '$(Build.SourcesDirectory)/src/PokerLeagueManager.Utilties/bin/$(buildConfiguration)'
     Contents: '**'
-    TargetFolder: '$(utilityFolder)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/utility'
 
 - task: CopyFiles@2
   displayName: Copy Zips
