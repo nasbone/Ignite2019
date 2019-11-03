@@ -55,6 +55,16 @@ steps:
     Contents: '**'
     TargetFolder: '$(utilityFolder)'
 
+- task: CopyFiles@2
+  displayName: Copy Zips
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **\*.WebApi.zip
+      **\*.UI.Web.zip
+      **\*.dacpac
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifacts
