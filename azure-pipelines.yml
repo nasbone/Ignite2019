@@ -14,7 +14,6 @@ variables:
   solution: '**/*.sln'
   deployfolder: '$(Build.ArtifactStagingDirectory)/deploy'
   utilityfolder: '$(Build.ArtifactStagingDirectory)/utility'
-  utilitysource: '/src/PokerLeagueManager.Utilties'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -43,11 +42,6 @@ steps:
     Contents: '**.deploy'
     TargetFolder: 'deployfolder'
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'utilitysource'
-    Contents: '**'
-    TargetFolder: 'utilityfolder'
 
 - task: PublishBuildArtifacts@1
   inputs:
