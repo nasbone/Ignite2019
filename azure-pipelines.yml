@@ -11,6 +11,8 @@ pool:
 
 variables:
   solution: '**/*.sln'
+  deployfolder: '$(Build.ArtifactStagingDirectory)/deploy'
+  utilityfolder: '$(Build.ArtifactStagingDirectory)/utility'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -33,6 +35,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**.deploy'
+    TargetFolder: 'deployfolder'
 
 - task: PublishBuildArtifacts@1
   inputs:
